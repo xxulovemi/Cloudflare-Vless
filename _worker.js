@@ -3,14 +3,14 @@ import { connect } from 'cloudflare:sockets';
 const 小可爱文字解码器 = new TextDecoder('utf-8', { fatal: true });
 const 关门原因编码器 = new TextEncoder();
 const 关门原因解码器 = new TextDecoder();
-const 我的小甜甜身份证 = '88888888-8888-8888-8888-888888888888';  //修改成你的UUID
+const 我的小甜甜身份证 = '88888888-8888-8888-8888-888888888888';  //修改为你的UUID
 const 身份证字节 = ((uuid) => {
   const hex = uuid.replace(/-/g, '');
   const arr = new Uint8Array(16);
   for (let i = 0; i < 16; i++) arr[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
   return arr;
 })(我的小甜甜身份证);
-const 默认备用小可爱地址 = 'usip.vpndns.net';  //修改成你的落地IP
+const 默认备用小可爱地址 = 'usip.vpndns.net';  //修改为你的落地IP
 
 // ═══════════════════════════════════════════════════════════════════
 // ⚙️ 可调参数（千兆网络，二选一，默认启用【预设B：千兆日常】）
@@ -76,7 +76,7 @@ function 校验候选地址(候选地址) {
     候选地址 === '[]' ||
     候选地址 === '..' ||
     候选地址.startsWith('./') ||
-    候选地址。startsWith('../') ||
+    候选地址.startsWith('../') ||
     候选地址.startsWith(':') ||
     !地址合法正则.test(候选地址)
   ) {
